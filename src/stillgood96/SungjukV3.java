@@ -59,6 +59,13 @@ public class SungjukV3 {
                 eng[i] = sc.nextInt();
                 System.out.print("수학점수를 입력하세요 :");
                 mat[i] = sc.nextInt();
+                sc.skip("\r\n|[\n\r]");
+                //수학성적 입력시 같이 입력된 enter키가
+                //다음 데이터(이름) 입력시 입력값으로
+                //자동으로 전달됨 그래서 두번째 학생부터 바로 국어점수로 넘어가는걸 확인된다.
+                //그러한 상황을 해결하기 위해
+                //미리 엔터키를 제거하는 코드를 마지막 부분에 삽입
+                //sc.skip("\r\n");   or  sc.skip("\r\n|[\n\r]"); -모르는부분 구글링해봐야함
             }
 
             for(int i=0;i<3;i++) {
