@@ -1,5 +1,7 @@
 package stillgood96;
 
+import java.sql.SQLOutput;
+
 /**
  * 파일명: SungjukV1
  * 작성일: 2020.11.17
@@ -15,26 +17,52 @@ package stillgood96;
 
 public class SungjukV1 {
     public static void main(String[] args) {
-        String name;
-        int kor,eng,mat;
-        int sum;
-        double mean;
-        char grd;
+        //변수선언  +선언할때 초기화도 해두면 좋다. +줄복사 ctrl+d
+        String name = "선우";
+        int kor = 99;
+        int eng = 98;
+        int mat = 99;
+        int sum = 0;
+        double mean  = 0.0;
+        char grd = '가';
+        //처리
+        sum = kor + eng + mat;
+                                 //mean= (kor + eng + mat);
+        mean = (double)sum/3;
+
+        //삼항연산자 (조건식)? 참일때 처리:거짓일때 처리
+
+        grd = (mean>=90)? '수':
+                (mean>=80)? '우':
+                        (mean>=70)? '미':
+                                (mean>=60)? '양':'가';
 
 
-        name="sunwooLee";
-        kor=99; eng=98; mat=99;
-        sum=kor+eng+mat;
-        mean=(double)sum/3;
 
 
+
+
+        //결과출력
         System.out.println("이름:"+name);
-        System.out.println("국어:"+mat);
+        System.out.println("국어:"+kor);
         System.out.println("영어:"+eng);
-        System.out.println("수학:"+mat);
-        System.out.println("------------");
+        System.out.println("수학:"+kor);
+        System.out.println("-----------");
         System.out.println("총점:"+sum);
         System.out.println("평균:"+mean);
+        System.out.println("학점:"+grd);
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
