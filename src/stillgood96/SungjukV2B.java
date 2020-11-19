@@ -32,7 +32,7 @@ public class SungjukV2B {
         int sum = 0;
         double mean  = 0.0;
         char grd = '가';
-        String fmt=        //평균의 %f로 하면 플롯의 소수점 7자리까지나온다. string으로 바꾸고 내려가서
+        String fmt=        //평균의 %f로 하면 플롯의 소수점 7자리까지나온다. string으로 바꾸고 78번줄로 내려가서
                 "이름 : %s\n국어: %d\n영어: %d\n수학: %d\n총합: %d\n평균:%s\n학점:%c";
         String result;
 

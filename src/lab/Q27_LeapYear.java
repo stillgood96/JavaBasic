@@ -16,6 +16,8 @@ public class Q27_LeapYear {
 
         }else if(year%4 !=0 && year%100 ==0){  //else if로 조건설정안하면 400년주기 윤년에 평년도 같이 출력이됨
             System.out.println("평년입니다.");
+        }else{
+            System.out.println("평년입니다.");
         }
 
     }

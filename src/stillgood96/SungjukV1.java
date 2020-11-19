@@ -46,7 +46,7 @@ public class SungjukV1 {
         System.out.println("이름:"+name);
         System.out.println("국어:"+kor);
         System.out.println("영어:"+eng);
-        System.out.println("수학:"+kor);
+        System.out.println("수학:"+mat);
         System.out.println("-----------");
         System.out.println("총점:"+sum);
         System.out.println("평균:"+mean);
