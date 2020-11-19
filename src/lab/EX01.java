@@ -12,13 +12,12 @@ public class EX01 {
         Professor prof=new Professor();
         //각 개체에 대해 변수 값 대입
 
-        //기본생성자로 만든 송혜고 값 출력
+        //기본생성자로 만든 객체내용 값 출력
         System.out.println(kim.stdNum);
-        System.out.println(kim.name);
-        System.out.println(kim.adr);
-        System.out.println(kim.birth);
-        System.out.println(kim.dept);
-        System.out.println(kim.prof);
+        System.out.println(dept.dname);
+        System.out.println(subj.no);
+        System.out.println(prof.no);
+
         //매개변수를 사용하는 생성자 값넣고 전지현 출력해보기
         Student jeon=new Student(201252110,"전지현","경기도 의정부시","1986.4.30","의상디자인","445");
         System.out.println(jeon.stdNum);
@@ -51,7 +50,18 @@ public class EX01 {
         prof.no="301";
         prof.name="이순신";
         prof.mjfield="프로그래밍";
+        */
+        //매개변수를 사용하는 생성자로 객체 생성
+        Student lee=new Student(201252110,
+                "전지현","경기도 의정부시",
+                "1986.05.06",
+                "의상디자인","445");
 
+
+
+
+
+        /*
         //객체에 저장된 값 출력
         //학생
         System.out.println(kim.stdNum);
