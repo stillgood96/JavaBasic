@@ -12,7 +12,25 @@ public class EX01 {
         Professor prof=new Professor();
         //각 개체에 대해 변수 값 대입
 
+        //기본생성자로 만든 송혜고 값 출력
+        System.out.println(kim.stdNum);
+        System.out.println(kim.name);
+        System.out.println(kim.adr);
+        System.out.println(kim.birth);
+        System.out.println(kim.dept);
+        System.out.println(kim.prof);
+        //매개변수를 사용하는 생성자 값넣고 전지현 출력해보기
+        Student jeon=new Student(201252110,"전지현","경기도 의정부시","1986.4.30","의상디자인","445");
+        System.out.println(jeon.stdNum);
+        System.out.println(jeon.name);
+        System.out.println(jeon.adr);
+        System.out.println(jeon.birth);
+        System.out.println(jeon.dept);
+        System.out.println(jeon.prof);
+
+
         //학생
+        /*
         kim.stdNum=201350050;
         kim.name="김태희";
         kim.adr="경기도 고양시";
@@ -56,6 +74,6 @@ public class EX01 {
         System.out.println(prof.no);
         System.out.println(prof.name);
         System.out.println(prof.mjfield);
-
+        */
     }
 }
