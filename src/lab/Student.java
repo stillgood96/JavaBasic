@@ -1,30 +1,28 @@
 package lab;
 
 public class Student {
+    int stdNum;
     String name;
-    int name_number;
-    String address;
+    String adr;
     String birth;
-    String subject;
-    int teacher;
+    String dept;
+    String prof; //교수는 숫자인데 문자열로하는이유는 문자가 3개다 ex)504
+                //504로 하면 3바이트 정수형으로하면 4바이트
 }
-
-class Subject{
-    String name;
+class Department{
+    String dname;
     String phone;
-    String location;
-    String master;
+    String office;
+    String chief;
 }
-
-class lecture{
-    int number;
-    String name;
-    String introduce;
-    String master;
+class Subject{
+    String no;
+    String subname;
+    String desc;
+    String prof;
 }
-
-class professor{
-    int number;
+class Professor{
+    String no;
     String name;
-    String subject;
+    String mjfield;
 }
