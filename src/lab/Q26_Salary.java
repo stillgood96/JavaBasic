@@ -1,6 +1,6 @@
 package lab;
 
-import java.sql.SQLOutput;
+
 import java.util.Scanner;
 
 public class Q26_Salary {
@@ -15,25 +15,25 @@ public class Q26_Salary {
 
         if (marry==0){
             System.out.println("납부하실 세금은");
-            if(money>3000){
+            if(money>30000000){
                 sum=money*0.25;
-                System.out.println((int)sum+"만원 입니다.");
+                System.out.println((int)sum+"원 입니다.");
 
 
-            }else if(money<3000){
+            }else if(money<30000000){
                 sum=money*0.1;
-                System.out.println((int)sum+"만원 입니다.");
+                System.out.println((int)sum+"원 입니다.");
             }
        }else if(marry==1){
             System.out.println("납부하실 세금은");
-            if(money>6000){
+            if(money>60000000){
                 sum=money*0.35;
-                System.out.println((int)sum+"만원 입니다.");
+                System.out.println((int)sum+"원 입니다.");
 
 
-            }else if(money<6000){
+            }else if(money<60000000){
                 sum=money*0.15;
-                System.out.println((int)sum+"만원 입니다.");
+                System.out.println((int)sum+"원 입니다.");
             }
         }
 

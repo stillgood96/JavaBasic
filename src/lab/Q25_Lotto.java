@@ -3,15 +3,8 @@ package lab;
 import java.util.Scanner;
 
 public class Q25_Lotto {
-    public static void main(String[] args) {
-
-        Scanner sc = new Scanner(System.in);
-        System.out.print("로또 번호 총 몇개 ? :");
-        final int num = sc.nextInt();
-        int pickNum[] = new int[num];
-        int lottoNum[] = new int[num];
-
-        //선택번호 입력
+    //번호 개수 및 번호 입력 메서드
+    public static void pickNum(final int num,int pickNum[],Scanner sc){
         for (int i = 0; i < num; i++) {
             System.out.printf("%d 번째 번호 입력: ", i + 1);
             pickNum[i] = sc.nextInt();
@@ -29,11 +22,12 @@ public class Q25_Lotto {
                 }
             }
         }
+    }
 
 
+    //당첨번호 저장 및 적중 메서드
+    public static void lottoNum(final int num,int lottoNum[],int pickNum[],int count){
 
-
-        //당첨번호 저장
         for (int j = 0; j < num; j++) {
             lottoNum[j] = (int) (Math.random() * 45) + 1;
 
@@ -46,9 +40,7 @@ public class Q25_Lotto {
                 }
             }
         }
-
-        //적중 및 당첨
-        int count=0;
+        count=0;
         for(int i=0;i<num;i++){
             for(int j=0;j<num;j++){
                 if(pickNum[i]==lottoNum[j]){
@@ -56,7 +48,11 @@ public class Q25_Lotto {
                 }
             }
         }
-        //출력
+    }
+
+
+    //출력 메서드
+    public static void printing(final int num,int lottoNum[],int count){
         for(int i=0;i<num;i++){
             System.out.printf("%d번째 번호 : %d\n",i+1,lottoNum[i]);
         }
@@ -66,6 +62,38 @@ public class Q25_Lotto {
         }else{
             System.out.println("아쉽지만 다음기회에");
         }
+    }
+
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("로또 번호 총 몇개 ? :");
+        final int num = sc.nextInt();
+        int pickNum[] = new int[num];
+        int lottoNum[] = new int[num];
+        int count=0;
+
+
+        pickNum(num,pickNum,sc);
+
+        lottoNum(num,lottoNum,pickNum,count);
+
+        printing(num,lottoNum,count);
+
+
+
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
 }
