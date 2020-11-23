@@ -172,7 +172,7 @@ class FinalSungJuk extends MidSungJuk {
         return art;
     }
 
-    public void setArt(int art) {+
+    public void setArt(int art) {
         this.art = art;
     }
 
