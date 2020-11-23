@@ -26,10 +26,10 @@ public class SungJuk7Main {
         sw.computeSungJuk2();
         sw.printSungJuk2();
         */
-        FinalSungJuk fsw=new FinalSungJuk();
-        fsw.readSungJuk();
-        fsw.computeSungJuk();
-        fsw.printSungJuk();
+        FinalSungJuk2 fsw=new FinalSungJuk2();
+        fsw.readSungJuk2();
+        fsw.computeSungJuk2();
+        fsw.printSungJuk2();
     }
 
 }
