@@ -1,117 +1,28 @@
 package semiproject11_26;
 
-import stillgood96.SungJukV0;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
-public class EmployeeV1Service extends EmployeeV1GenericService {
-    List<EmployeeVO> emp = new ArrayList<>();
-
-    @Override
-    public void newEmployee() {
-        int empno;
-        String fname;
-        String email;
-        String jobid;
-        int mgrid;
-        int deptid;
-
-        Scanner sc = new Scanner(System.in);
-        System.out.print("사원 번호 입력: ");
-        empno=sc.nextInt();
-        sc.skip("\r\n|[\n\r]");
-        System.out.print("사원 성 입력: ");
-        fname=sc.nextLine();
-        System.out.print("이메일 입력: ");
-        email=sc.nextLine();
-        System.out.print("직책 입력: ");
-        jobid=sc.nextLine();
-        System.out.print("상사번호 입력: ");
-        mgrid=sc.nextInt();
-        System.out.print("부서번호 입력: ");
-        deptid=sc.nextInt();
-        sc.skip("\r\n|[\n\r]");
-
-        EmployeeVO sw = new EmployeeVO(empno,fname,email,jobid,mgrid,deptid);
-
-        emp.add(sw);
-    }
-
-    @Override
-    public void readEmployee() {
-        String fmt = "사원번호:%d,성:%s,이메일:%s,직책:%s,상사번호:%d,부서번호:%d\n";
-
-        Iterator<EmployeeVO> emps = emp.iterator();
-            while(emps.hasNext()){
-                EmployeeVO info = emps.next();
-                System.out.printf(fmt,info.getEmpno(),info.getFname(),info.getEmail(),
-                        info.getJobid(),info.getMgrid(),info.getDeptid());
-            }
+/**
+ * EmployeeV1Service
+ * 인사정보 처리 인터페이스를 구현한 클래스
+ * 인사정보 처리에 대한 CRUD 코드를 작성해 둠
+ */
 
 
-    }
+public class EmployeeV1Service
+        extends EmployeeV1GenericService {
+    List<EmployeeVO> empdata = new ArrayList<>();
 
-    @Override
-    public void readOneEmployee() {
-        String fmt =
-                "사원번호:%d,성:%s,이메일:%s,직책:%s,상사번호:%d,부서번호:%d";
-
-        // 상세조회할 학생이름 입력 받음
-        Scanner sc = new Scanner(System.in);
-        System.out.print("조회할 사원번호는?");
-        int empno = sc.nextInt();
-
-        // 입력받은 이름으로 데이터 검색후 결과 출력
-        for (EmployeeVO sw : emp) {
-            if (sw.getEmpno()==(empno)) {
-                System.out.printf(fmt,sw.getEmpno(),sw.getFname(),sw.getEmail(),
-                        sw.getJobid(),sw.getMgrid(),sw.getDeptid());
-                System.out.println("");
-                break;
-            }else {
-                System.out.println("조회하신 번호가 존재하지 않습니다 !");
-            }
-        }
-    }
-
-    @Override
-    public void modifyEmployee() {
-
-        Scanner sc = new Scanner(System.in);
-        System.out.println("수정하실 사원번호는?");
-        int epn=sc.nextInt();
-
-        for (EmployeeVO sw : emp) {
-            if (sw.getEmpno()==(epn)) {
-                System.out.println("수정하실 부분 입력: ex)사원번호,성,이메일,직책,사수번호,부서번호");
-                String a=sc.nextLine();
-                switch(a){
-                    case "사원번호" :
-                        System.out.println("수정하실 사원번호 입력: ");
-                        int empnumR =sc.nextInt();
-                        EmployeeVO empnum = new EmployeeVO();
-                        empnum.setEmpno(empnumR);
-                        emp.set(sw.getEmpno(),empnum);
-                        break;
-                        }
-            }else {
-                System.out.println("조회하신 번호가 존재하지 않습니다 !");
-            }
-        }
-    }
-
-    @Override
-    public void removeEmployee() {
-        super.removeEmployee();
-    }
-
-    public void displayMenu () {
+    /**
+     * 인사정보 처리 UI 출력
+     */
+    public void displayMenu() {
         StringBuilder sb = new StringBuilder();
               sb.append("-------------------\n")
-                .append("인사 관리 프로그램v1\n")
+                .append("인사정보 처리프로그램 v1\n")
                 .append("-------------------\n")
                 .append("1. 인사 정보 입력\n")
                 .append("2. 인사 정보 조회\n")
@@ -122,5 +33,125 @@ public class EmployeeV1Service extends EmployeeV1GenericService {
                 .append("-------------------\n")
                 .append("원하시는 작업은 ? [1,2,3,4,5,0] ");
         System.out.print(sb);
+    }
+
+    @Override
+    /**
+     * 인사정보 입력받기
+     */
+    public void newEmployee() {
+        /*
+        int empno;
+        String fname;
+        String lname;
+        String email;
+        String phone;
+        String hdatd;
+        String jobid;
+        int sal;
+        double comm;
+        int mgrid;
+        int deptid;
+
+         */
+        EmployeeVO emp = new EmployeeVO(
+                0,"","","","",
+                "","",0,0.0,0,0);
+        Scanner sc = new Scanner(System.in);
+        // 모든 인사정보는 일단 문자형으로 받되
+        // 필요에 따라 적절한 형변환을 해서 변수에 저장
+        System.out.print("사번을 입력하세요 : ");
+        // emp = sc.nextIng();
+        emp.setEmpno( Integer.parseInt(sc.nextLine()) );
+
+        System.out.print("이름을 입력하세요 : ");
+        emp.setLname( sc.nextLine() );
+
+        System.out.print("성을 입력하세요 : ");
+        emp.setFname( sc.nextLine() );
+
+        System.out.print("이메일을 입력하세요 : ");
+        emp.setEmail( sc.nextLine() );
+
+        System.out.print("전화번호를 입력하세요 : ");
+        emp.setPhone( sc.nextLine() );
+
+        System.out.print("입사일을 입력하세요 : ");
+        emp.setHdatd( sc.nextLine() );
+
+        System.out.print("직책을 입력하세요 : ");
+        emp.setJobid( sc.nextLine() );
+
+        System.out.print("급여를 입력하세요 : ");
+        emp.setSal( Integer.parseInt(sc.nextLine() ) );
+
+        System.out.print("수당 입력하세요 : ");
+        emp.setComm( Double.parseDouble(sc.nextLine() ) );
+
+        System.out.print("상사번호를 입력하세요 : ");
+        emp.setMgrid( Integer.parseInt(sc.nextLine()) );
+
+        System.out.print("부서번호를 입력하세요 : ");
+        emp.setDeptid( Integer.parseInt(sc.nextLine()) );
+
+        empdata.add(emp);
+    }
+
+    @Override
+    /**
+     * 기본 인사정보 출력
+     */
+    public void readEmployee() {
+        // 데이터 출력시 간격유지를 위해 '\t' or 형식지정자 앞에 숫자 사용
+
+        String fmt = "%8s %8s %8s %8s %8s %8s\n";
+
+        System.out.printf(fmt,
+                "empno","lname","email","jobid","mgrid","deptid"); //한글로쓰면 칸이 안맞음
+        Iterator<EmployeeVO> iter = empdata.iterator();
+
+        while(iter.hasNext()) {
+            EmployeeVO e = iter.next();
+            System.out.printf(fmt,e.getEmpno(),e.getFname(),e.getEmail(),
+                    e.getJobid(),e.getMgrid(),e.getDeptid());
+        }
+    }
+
+    @Override
+    /**
+     * 상세 인사정보 출력
+     * 사원번호를 입력받아 출력함
+     */
+    public void readOneEmployee() {
+        String fmt = "%8s %8s %8s %8s %8s %8s "+
+                "%8s %8s %8s %8s %8s\n";
+        EmployeeVO emp = new EmployeeVO();
+        Scanner sc = new Scanner(System.in);
+        System.out.print("조회할 사원번호는 ?");
+        emp.setEmpno( Integer.parseInt( sc.nextLine() ));
+
+        for(EmployeeVO e : empdata) {
+            // 입력한 사원번호와
+            // 순회해서 읽어온 사원번호와 비교
+            // 일치하면 이것을 출력하기 위해
+            // 다른 변수에 저장함
+            if ( e.getEmpno() == emp.getEmpno() ) {
+                emp = e;
+            }
+        }
+        System.out.printf(fmt, emp.getEmpno(),
+                emp.getFname(),emp.getLname(),emp.getEmail(),emp.getPhone(),
+                emp.getHdatd(),emp.getJobid(),emp.getSal(),emp.getComm(),emp.getMgrid(),
+                emp.getDeptid());
+    }
+
+    @Override
+    public void modifyEmployee() {
+        super.modifyEmployee();
+    }
+
+    @Override
+    public void removeEmployee() {
+        super.removeEmployee();
     }
 }

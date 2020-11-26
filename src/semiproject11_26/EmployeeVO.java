@@ -1,26 +1,37 @@
 package semiproject11_26;
 
+/**
+ * 인사 정보 프로그램
+ * 사번empno, 이름fname, 성lname, 이메일email, 전화번호phone, 입사일hdatd,
+ * 직책jobid, 급여sal, 수당comm, 상사mgrid, 부서deptid
+ */
 public class EmployeeVO {
-    protected int empno; //사원번호
-    protected String fname; // 성
-    protected String lname; // 이름
-    protected String email; //이메일
-    protected String phone; //핸드폰번호
-    protected String hdate; // 입사일
-    protected String jobid; // 직책
-    protected int salary; // 연봉
-    protected String comm; //??모름
-    protected int mgrid; // 사수번호
-    protected int deptid; // 부서번호
+    //멤버 변수
+   private int empno;
+   private String fname;
+   private String lname;
+   private String email;
+   private String phone;
+   private String hdatd;
+   private String jobid;
+   private int sal;
+   private double comm;
+   private int mgrid;
+   private int deptid;
 
     public EmployeeVO() {
     }
 
-    public EmployeeVO(int empno, String fname, String email, String jobid, int mgrid, int deptid) {
+    public EmployeeVO(int empno, String fname, String lname, String email, String phone, String hdatd, String jobid, int sal, double comm, int mgrid, int deptid) {
         this.empno = empno;
         this.fname = fname;
+        this.lname = lname;
         this.email = email;
+        this.phone = phone;
+        this.hdatd = hdatd;
         this.jobid = jobid;
+        this.sal = sal;
+        this.comm = comm;
         this.mgrid = mgrid;
         this.deptid = deptid;
     }
@@ -65,12 +76,12 @@ public class EmployeeVO {
         this.phone = phone;
     }
 
-    public String getHdate() {
-        return hdate;
+    public String getHdatd() {
+        return hdatd;
     }
 
-    public void setHdate(String hdate) {
-        this.hdate = hdate;
+    public void setHdatd(String hdatd) {
+        this.hdatd = hdatd;
     }
 
     public String getJobid() {
@@ -81,19 +92,19 @@ public class EmployeeVO {
         this.jobid = jobid;
     }
 
-    public int getSalary() {
-        return salary;
+    public int getSal() {
+        return sal;
     }
 
-    public void setSalary(int salary) {
-        this.salary = salary;
+    public void setSal(int sal) {
+        this.sal = sal;
     }
 
-    public String getComm() {
+    public double getComm() {
         return comm;
     }
 
-    public void setComm(String comm) {
+    public void setComm(double comm) {
         this.comm = comm;
     }
 
