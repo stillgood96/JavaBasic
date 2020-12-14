@@ -14,6 +14,7 @@ public class SungJukV9Service extends SungJukV8Service {
     private FileWriter fw = null;
     private BufferedReader br = null;
     private BufferedWriter bw = null;
+    SungJukV0 sj = new SungJukV0();
 
 
     public SungJukV9Service()  {
@@ -56,6 +57,7 @@ public class SungJukV9Service extends SungJukV8Service {
         super.newSungJuk();
 
         try {
+
             writeSungJuk(sj);
         } catch (IOException e) {
             System.out.println("파일쓰기중 오류!");

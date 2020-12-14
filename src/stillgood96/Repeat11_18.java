@@ -34,6 +34,7 @@ public class Repeat11_18 {
         sc.skip("\r\n|[\n\r]");
 
 
+
        //과목 이름 정하기
         for(int i=0;i<subjectNum;i++) {
             System.out.printf("%d번째 과목 이름입력:", i+ 1);
