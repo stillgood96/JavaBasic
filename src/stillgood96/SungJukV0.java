@@ -10,6 +10,7 @@ package stillgood96;
  */
 
 public class SungJukV0 {
+    private int sjno;
     private String name;
     private int kor;
     private int eng;
@@ -17,6 +18,7 @@ public class SungJukV0 {
     private int sum;
     private double mean;
     private char grd;
+    private String regdate;
 
 
     public SungJukV0() {
@@ -30,6 +32,34 @@ public class SungJukV0 {
         this.sum = sum;
         this.mean = mean;
         this.grd = grd;
+    }
+
+    public SungJukV0(int sjno, String name, int kor, int eng, int math, int sum, double mean, char grd, String regdate) {
+        this.sjno = sjno;
+        this.name = name;
+        this.kor = kor;
+        this.eng = eng;
+        this.math = math;
+        this.sum = sum;
+        this.mean = mean;
+        this.grd = grd;
+        this.regdate = regdate;
+    }
+
+    public int getSjno() {
+        return sjno;
+    }
+
+    public void setSjno(int sjno) {
+        this.sjno = sjno;
+    }
+
+    public String getRegdate() {
+        return regdate;
+    }
+
+    public void setRegdate(String regdate) {
+        this.regdate = regdate;
     }
 
     public String getName() {

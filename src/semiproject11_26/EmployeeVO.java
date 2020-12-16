@@ -19,6 +19,15 @@ public class EmployeeVO {
    private int mgrid;
    private int deptid;
 
+    public EmployeeVO(int empno, String lname, String email, String jobid, int mgrid, int deptid) {
+        this.empno = empno;
+        this.lname = lname;
+        this.email = email;
+        this.jobid = jobid;
+        this.mgrid = mgrid;
+        this.deptid = deptid;
+    }
+
     public EmployeeVO() {
     }
 

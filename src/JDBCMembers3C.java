@@ -12,7 +12,7 @@ public class JDBCMembers3C {
 
         String sql = "select * from bookMembers where name = ?";
         Scanner sc = new Scanner(System.in);
-        System.out.print("조회하려는  사람이름은 ? :");
+        System.out.print("주문일자는 ? :");
         String name=sc.nextLine();
 
 

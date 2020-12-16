@@ -22,7 +22,7 @@ public class JDBCBooks3 {
     // java => ?,?
     // python : %s, %d
     // c# : @name, @passwd
-    // orcle => : 1, :2
+    // orcle => : 1, :
 
 
 

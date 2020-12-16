@@ -13,9 +13,9 @@ public class JDBCUtil {
             conn= DriverManager.getConnection(URL,USR,PWD);
 
         } catch (ClassNotFoundException e) {
-            System.out.println("너 드라이버에 문제있어?!");
+            System.out.println("너 드라이버에 문제있어?");
         } catch (SQLException e) {
-            System.out.println("JDBC 연결실패!");
+            System.out.println("JDBC 연결실패");
         }
         return conn;
     }
