@@ -12,4 +12,9 @@ public class SamKwangJDBC extends JDBCUtil {
             "select 인사번호,주문번호,운송ID,운송이름,주문일,직책 from SOE order by 운송ID desc ";
     public static String selectOneSOE=
             "select * from SOE where 운송ID = ?";
+    public static String selectCOE =
+            " select 인사번호,고객번호,고객이름,전화번호,주문일,소속부서,직책 from COE\n" +
+                    "    order by 인사번호,고객번호 asc;";
+    public static String selectOneCoe=
+            " select * from COE where 인사번호 = ? ";
 }

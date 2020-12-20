@@ -27,6 +27,8 @@ public class SamKwangFinalV1 {
                 case "3": sk.readOneCODP();break;
                 case "4": sk.readSOE(); break;
                 case "5": sk.readOneSOE(); break;
+                case "6": sk.readCOE();break;
+                case "7": sk.readOneCoe(); break;
                 case "0":
                     System.exit(0);
                     break; //System.exit(0)이 입력받으면 정상종료

@@ -151,4 +151,78 @@ public class SamKwangFinalV1DAO {
 
         return soe;
     }
+
+    public static ArrayList<SamKwangCOE_VO> readCOE() {
+        Connection conn= null;
+        PreparedStatement pstmt = null;
+        ResultSet rs= null;
+        ArrayList<SamKwangCOE_VO> coes = new ArrayList<>();
+
+
+        conn = SamKwangJDBC.makecConn();
+        try {
+            pstmt =conn.prepareStatement(SamKwangJDBC.selectCOE);
+            rs = pstmt.executeQuery();
+            while(rs.next()){
+                SamKwangCOE_VO coe = new SamKwangCOE_VO(
+                        rs.getInt(1),
+                        rs.getInt(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getString(7)
+                );
+                coes.add(coe);
+
+            }
+
+        } catch (SQLException se) {
+            System.out.println("selectCOE");
+            se.printStackTrace();
+        }
+        SamKwangJDBC.destroyConn(conn,pstmt,rs);
+
+        return coes;
+    }
+
+
+    public static ArrayList<SamKwangCOE_VO> selectOneCOE(int 인사번호) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        ArrayList<SamKwangCOE_VO> coes = new ArrayList<>();
+
+        conn = SamKwangJDBC.makecConn();
+        try {
+            pstmt = conn.prepareStatement(SamKwangJDBC.selectOneCoe);
+            pstmt.setInt(1,인사번호);
+            rs= pstmt.executeQuery();
+            while(rs.next()){
+               SamKwangCOE_VO coe =new SamKwangCOE_VO(
+                       rs.getInt(1),
+                       rs.getInt(2),
+                       rs.getString(3),
+                       rs.getString(4),
+                       rs.getString(5),
+                       rs.getString(6),
+                       rs.getString(7),
+                       rs.getInt(8),
+                       rs.getString(9),
+                       rs.getString(10),
+                       rs.getString(11),
+                       rs.getString(12),
+                       rs.getString(13),
+                       rs.getString(14),
+                       rs.getString(15)
+                       );
+               coes.add(coe);
+            }
+
+        } catch (SQLException se) {
+            se.printStackTrace();
+        }
+
+        return coes;
+    }
 }

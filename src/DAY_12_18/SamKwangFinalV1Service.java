@@ -1,6 +1,7 @@
 package DAY_12_18;
 
 
+
 import semiproject11_26.EmployeeV3DAO;
 import semiproject11_26.EmployeeVO;
 
@@ -18,6 +19,8 @@ public class SamKwangFinalV1Service {
                 .append("3. CODP 정보 상세조회\n")
                 .append("4. SOE 정보 조회\n")
                 .append("5. SOE 정보 상세 조회 \n")
+                .append("6. COE 정보 조회\n")
+                .append("7.COE 상세정보 조회\n ")
                 .append("0. 프로그램 종료\n")
                 .append("-------------------\n")
                 .append("원하시는 작업은 ? [1,2,3,4,5,0] ");
@@ -106,4 +109,38 @@ public class SamKwangFinalV1Service {
 
 
     }
+
+    public void readCOE() {
+        String fmt = "%10s %10s %10s %10s %10s %10s %10s\n";
+        StringBuilder sb = new StringBuilder();
+        ArrayList<SamKwangCOE_VO> coes = SamKwangFinalV1DAO.readCOE();
+        String result;
+        for(SamKwangCOE_VO coe : coes) {
+            result = String.format(fmt,coe.get인사번호(),coe.get고객번호(),coe.get고객이름(),coe.get전화번호(),coe.get주문일(),coe.get소속부서(),coe.get직책());
+            sb.append(result);
+        }
+        System.out.println(sb.toString());
+    }
+
+    public void readOneCoe(){
+        String fmt = "%10s %10s %10s %10s %10s %10s %10s \n %10s %10s %10s %10s %10s %10s %10s %10s\n";
+        StringBuilder sb = new StringBuilder();
+        Scanner sc = new Scanner(System.in);
+        System.out.print("조회하실 인사번호 실적은 ?");
+        int 인사번호 = Integer.parseInt(sc.nextLine());
+        ArrayList<SamKwangCOE_VO> coes = SamKwangFinalV1DAO.selectOneCOE(인사번호);
+        String result= "조회하신 인사번호 실적 입력중..?!";
+        if(coes !=null){
+            for(SamKwangCOE_VO coe : coes){
+                result = String.format(fmt,coe.get인사번호(),coe.get고객번호(),coe.get고객이름(),coe.get주소(),coe.get시도(),coe.get우편번호(),
+                        coe.get전화번호(),coe.get주분번호(),coe.get주문일(),coe.get납기일(),coe.get주민등록번호(),coe.get성명(),coe.get소속부서(),coe.get직책(),coe.get입사일());
+                sb.append(result);
+            }
+            System.out.println(sb.toString());
+        }
+    }
+
+
+
+
 }
